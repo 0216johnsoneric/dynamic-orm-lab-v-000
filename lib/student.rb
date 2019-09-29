@@ -25,10 +25,10 @@ class Student < InteractiveRecord
     attr_accessor col_name.to_sym
   end
 
-  # def initialize(student={})
-  # student.each do |property, value|
-  #   self.send("#{property}=", value)
-  # end
+  def initialize(student={})
+  student.each do |property, value|
+    self.send("#{property}=", value)
+  end
   #
   # def save
   #   sql = "INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})"
