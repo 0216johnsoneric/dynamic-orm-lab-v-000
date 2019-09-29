@@ -30,7 +30,7 @@ class Student < InteractiveRecord
     self.send("#{key}=", value)
     end
   end
-  
+
   def save
     sql = "INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})"
     DB[:conn].execute(sql)
@@ -52,9 +52,9 @@ class Student < InteractiveRecord
   def col_names_for_insert
     self.class.column_names.delete_if {|col| col == "id"}.join(", ")
   end
-  #
-  # def self.find_by_name(name)
-  #   sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
-  #   DB[:conn].execute(sql)
-  # end
+  
+  def self.find_by_name(name)
+    sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
+    DB[:conn].execute(sql)
+  end
 end
