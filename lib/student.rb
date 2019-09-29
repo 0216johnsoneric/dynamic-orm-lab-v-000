@@ -26,7 +26,7 @@ class Student < InteractiveRecord
   end
 
   def initialize(student={})
-  student.each do |property, value|
+    student.each do |property, value|
     self.send("#{property}=", value)
   end
   #
